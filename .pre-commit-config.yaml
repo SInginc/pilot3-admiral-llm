@@ -1,0 +1,31 @@
+repos:
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.5.7
+    hooks:
+      - id: ruff
+        types_or: [python, pyi, jupyter]
+        args: ["--fix"]
+      - id: ruff-format
+  - repo: https://github.com/python-poetry/poetry-plugin-export
+    rev: 1.6.0
+    hooks:
+      - id: poetry-export
+        args:
+          [
+            "-f",
+            "requirements.txt",
+            "--output",
+            "requirements.txt",
+            "--without-hashes",
+          ]
+        verbose: true
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0
+    hooks:
+      - id: detect-private-key
+      - id: check-toml
+      - id: check-yaml
+      - id: end-of-file-fixer
+        exclude_types: ["pdf", "html"]
+      - id: trailing-whitespace
+        exclude_types: ["pdf", "html"]
