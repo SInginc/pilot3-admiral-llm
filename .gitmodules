@@ -1,0 +1,3 @@
+[submodule "admiral"]
+	path = admiral
+	url = https://github.com/pharmaverse/admiral.git
